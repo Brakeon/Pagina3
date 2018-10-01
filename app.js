@@ -34,7 +34,7 @@ app.get('/a/:id', function(req, res) {
 
     for (var num in pid) {
 
-        // res.send(pid[num] + "\n");
+        // f res.send(pid[num] + "\n");
         if (pid[num].id == entrada) {
 
             salida = pid[num].edad;
