@@ -26,9 +26,9 @@ app.get('/users', function(req, res) {
     res.send('user ' + req.params.id);
 });*/
 
-var pid = [{ "id": 'Pepe', "edad": 23 }, { "id": 'Ana', "edad": 32 }, { "id": 'Jose', "edad": 34 }];
+var pid = [{ "id": 'Pepe', "edad": 23, "ciudad": 'Madrid' }, { "id": 'Ana', "edad": 32, "ciudad": 'Segovia' }, { "id": 'Jose', "edad": 34, "ciudad": 'Valencia' }];
 
-app.get('/a/:id', function(req, res) {
+app.get('/edad/:id', function(req, res) {
     var entrada = req.params.id;
     var salida;
 
@@ -45,6 +45,26 @@ app.get('/a/:id', function(req, res) {
         res.send("no hay na de ná");
     } else {
         res.send('edad: ' + salida);
+    }
+});
+
+app.get('/ciudad/:id', function(req, res) {
+    var entrada = req.params.id;
+    var salida;
+
+    for (var num in pid) {
+
+        res.send(pid[num] + "\n");
+        if (pid[num].id == entrada) {
+
+            salida = pid[num].ciudad;
+        }
+    }
+
+    if (salida == null) {
+        res.send("no hay na de ná");
+    } else {
+        res.send('ciudad: ' + salida);
     }
 });
 
